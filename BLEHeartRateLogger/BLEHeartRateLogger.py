@@ -31,6 +31,29 @@ import socket
 logging.basicConfig(format="%(asctime)-15s  %(message)s")
 log = logging.getLogger("BLEHeartRateLogger")
 
+bag_map = {
+    "001": "C6:58:5E:9B:BF:1F",
+    "002": "",
+    "003": "",
+    "004": "",
+    "005": "",
+    "006": "",
+    "007": "",
+    "008": "",
+    "009": "",
+    "010": "",
+    "011": "",
+    "012": "",
+    "013": "",
+    "014": "",
+    "015": "",
+    "016": "",
+    "017": "",
+    "018": "",
+    "019": "",
+    "020": ""
+}
+
 
 def parse_args():
     """
