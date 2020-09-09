@@ -212,7 +212,7 @@ def main(addr=None, sqlfile=None, gatttool="gatttool", check_battery=False, hr_h
     if addr is None:
         # In case no address has been provided, we scan to find any BLE devices
         #addr = get_ble_hr_mac()
-        addr = 'C6:58:5E:9B:BF:1F'
+        addr = bag_map[bag_id]
         if addr == None:
             sq.close()
             return
