@@ -27,9 +27,12 @@ import argparse
 import ConfigParser
 import requests
 import socket
+from threading import Thread
 
 logging.basicConfig(format="%(asctime)-15s  %(message)s")
 log = logging.getLogger("BLEHeartRateLogger")
+
+url = "http://ec2-18-217-1-165.us-east-2.compute.amazonaws.com/hr"
 
 bag_map = {
     "001": "C6:58:5E:9B:BF:1F", #0945797
@@ -168,6 +171,8 @@ def insert_db(sq, res, period, min_ce=2, max_ce=60 * 2, grace_commit=2 / 3.):
 
         insert_db.i = 0
 
+def request(myjson):
+    x = requests.post(url, json = myjson)
 
 def get_ble_hr_mac():
     """
@@ -333,7 +338,9 @@ def main(addr=None, sqlfile=None, gatttool="gatttool", check_battery=False, hr_h
             if sqlfile is None:
                 log.info("xHeart rate: " + str(res["hr"]))
                 myobj = {"bag_id":str(bag_id),"hr":str(res["hr"])}
-                x = requests.post('http://ec2-18-217-1-165.us-east-2.compute.amazonaws.com/hr', json=myobj)
+                #x = requests.post('http://ec2-18-217-1-165.us-east-2.compute.amazonaws.com/hr', json=myobj)
+                t = Thread(target=request, args=(myobj,))
+                t.start()
                 continue
 
             # Push the data to the database
