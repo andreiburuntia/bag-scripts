@@ -1,0 +1,10 @@
+ [Unit]
+ Description=HR Service
+ After=network-online.target
+
+ [Service]
+ Type=simple
+ ExecStart=/home/pi/bag-scripts/BLEHeartRateLogger/BLEHeartRateLogger.py
+
+ [Install]
+ WantedBy=multi-user.target

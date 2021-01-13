@@ -1,0 +1,10 @@
+ [Unit]
+ Description=PUNCH Service
+ After=network-online.target
+
+ [Service]
+ Type=simple
+ ExecStart=/usr/bin/python3 /home/pi/bag-scripts/zfintest.py
+
+ [Install]
+ WantedBy=multi-user.target
