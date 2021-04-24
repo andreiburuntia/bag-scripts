@@ -32,7 +32,7 @@ from threading import Thread
 logging.basicConfig(format="%(asctime)-15s  %(message)s")
 log = logging.getLogger("BLEHeartRateLogger")
 
-url = "http://ec2-18-217-1-165.us-east-2.compute.amazonaws.com/hr"
+url = "http://192.168.100.137:3000/hrs"
 
 bag_map = {
     "001": "C6:58:5E:9B:BF:1F", #0945797
