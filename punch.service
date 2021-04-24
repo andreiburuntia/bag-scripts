@@ -1,10 +1,10 @@
  [Unit]
- Description=HR Service
+ Description=PUNCH Service
  After=network-online.target
 
  [Service]
  Type=simple
- ExecStart=/home/pi/bag-scripts/BLEHeartRateLogger/BLEHeartRateLogger.py
+ ExecStart=/usr/bin/python3 /home/pi/bag-scripts/zfintest.py
 
  [Install]
  WantedBy=multi-user.target
