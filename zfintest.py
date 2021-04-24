@@ -20,20 +20,32 @@ _x2_max = 348.0
 i2c = busio.I2C(board.SCL, board.SDA)
 accelerometer = adafruit_adxl34x.ADXL345(i2c)
 
+<<<<<<< HEAD
 url = "http://192.168.100.137:3000/punches"
 headers = {
   'Content-Type': 'application/json'
 }
+=======
+url = "http://ec2-18-217-1-165.us-east-2.compute.amazonaws.com/punch"
+>>>>>>> 4cb766f936dd622417e390b560bdb1b9428da418
 
 bag_id = socket.gethostname().split('-')[1]
 print(bag_id)
 def request(myjson):
+<<<<<<< HEAD
     x = requests.request("POST", url, headers=headers, json = myjson)
 
 time.sleep(30)
 print('started')
 #myobj2 = {"bag_id":str(bag_id),"score": "0","count": "0"}
 xxx = requests.post(url, headers=headers, json = {"bag_id": bag_id, "score": "0", "count": "0"})
+=======
+    x = requests.post(url, json = myjson)
+
+time.sleep(30)
+#myobj2 = {"bag_id":str(bag_id),"score": "0","count": "0"}
+xxx = requests.post(url, json = {"bag_id": bag_id, "score": "0", "count": "0"})
+>>>>>>> 4cb766f936dd622417e390b560bdb1b9428da418
 print(xxx)
 
 previous = 0
@@ -100,7 +112,11 @@ while True:
         
         #print('\n')
         score += ((accel_a-9.78)*mass)/100 
+<<<<<<< HEAD
         myobj = {"bag_id":str(bag_id),"score":str(int(score)),"count": str(count)}
+=======
+        myobj = {"bag_id":str(bag_id),"score":str(score),"count": str(count)}
+>>>>>>> 4cb766f936dd622417e390b560bdb1b9428da418
         t = Thread(target=request, args=(myobj,))
         t.start()
     i += 1
