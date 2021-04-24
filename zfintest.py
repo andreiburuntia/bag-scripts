@@ -31,6 +31,7 @@ url = "http://ec2-18-217-1-165.us-east-2.compute.amazonaws.com/punch"
 
 bag_id = socket.gethostname().split('-')[1]
 print(bag_id)
+
 def request(myjson):
     x = requests.request("POST", url, headers=headers, json = myjson)
 
@@ -39,7 +40,7 @@ print('started')
 #myobj2 = {"bag_id":str(bag_id),"score": "0","count": "0"}
 xxx = requests.post(url, headers=headers, json = {"bag_id": bag_id, "score": "0", "count": "0"})
 
-    x = requests.post(url, json = myjson)
+#x = requests.post(url, json = myjson)
 
 time.sleep(30)
 #myobj2 = {"bag_id":str(bag_id),"score": "0","count": "0"}
