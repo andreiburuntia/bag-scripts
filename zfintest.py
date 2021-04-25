@@ -47,7 +47,7 @@ xxx = requests.post(url, headers=headers, json = {"bag_id": bag_id, "score": "0"
 
 
 #myobj2 = {"bag_id":str(bag_id),"score": "0","count": "0"}
-xxx = requests.post(url, json = {"bag_id": bag_id, "score": "0", "count": "0"})
+#xxx = requests.post(url, json = {"bag_id": bag_id, "score": "0", "count": "0"})
 
 print(xxx)
 
