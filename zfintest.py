@@ -35,7 +35,7 @@ print(bag_id)
 def request(myjson):
     x = requests.request("POST", url, headers=headers, json = myjson)
     print('p')
-#time.sleep(30)
+time.sleep(30)
 print('started')
 #myobj2 = {"bag_id":str(bag_id),"score": "0","count": "0"}
 xxx = requests.post(url, headers=headers, json = {"bag_id": bag_id, "score": "0", "count": "0"})
